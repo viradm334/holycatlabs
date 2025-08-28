@@ -4,7 +4,7 @@ export async function GET(req, {params}){
     const {userId} = await params;
 
     try{
-        const orders = await prisma.order.findmany({
+        const orders = await prisma.order.findMany({
             where: {
                 userId
             }
