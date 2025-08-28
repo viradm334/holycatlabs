@@ -77,7 +77,7 @@ async function main() {
       {
         name: "Pet Soap",
         slug: "pet-soap",
-        imageUrl: "/cat-soap.jpg",
+        imageUrl: "/pet-soap.jpg",
         categoryId: "5e36a92e-3c45-45d7-b5bb-8bc17e3a30ab",
         description: "Sabun kucing yang harum dan membuat bulu lembut.",
         price: 20000,

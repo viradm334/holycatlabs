@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Navbar() {
   return (
-    <div className="shadow-md sticky top-0 px-5 py-2 flex justify-between bg-white">
+    <div className="shadow-md sticky top-0 px-5 py-2 flex justify-between bg-white z-10">
       {/* Logo */}
       <div className="flex gap-2 items-center">
         <Image src={"/logo.jpg"} height={40} width={40} alt="logo" />

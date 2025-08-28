@@ -17,10 +17,7 @@ export default function CustomerLayout({ title = "", children }) {
   return (
     <div className="flex flex-col min-h-screen">
       <Navbar />
-        <main className="flex-grow w-full p-6">
-          <header className="mb-6 px-3">
-            <h1 className="text-2xl font-semibold text-gray-700">{title}</h1>
-          </header>
+        <main className="flex-grow w-full p-4">
           {React.cloneElement(children, { user })}
         </main>
         <Footer/>
