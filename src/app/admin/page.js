@@ -1,13 +1,10 @@
 'use client'
 
-import Button from "@/components/ui/Button"
-import Navbar from "@/components/nav/Navbar"
-import Footer from "@/components/nav/Footer"
+import AdminLayout from "@/components/layouts/AdminLayout"
+import AdminDashboard from "@/components/pages/AdminDashboard"
 
 export default function AdminHome(){
-    return(<div>
-        <Navbar/>
-        <Button type={'secondary'} text={'Login'}/>
-        <Footer/>
-    </div>)
+    return(<AdminLayout>
+        <AdminDashboard/>
+    </AdminLayout>)
 }
