@@ -1,16 +1,16 @@
 import prisma from "@/lib/prisma";
 
 export async function GET(req, {params}){
-    const {id} = await params;
+    const {userId} = await params;
 
     try{
-        const user = await prisma.user.findUnique({
+        const orders = await prisma.order.findmany({
             where: {
-                id
+                userId
             }
-        })
+        });
 
-        return Response.json({message: "Successfully get user data!", success: true, user});
+        return Response.json({message: "Successfully get all orders!", success: true, orders});
     }catch(err){
         console.error(err.message);
         return Response.json({message: "Something went wrong, please try again later."}, {status: 500});
