@@ -108,7 +108,7 @@ export default function AdminProducts() {
           + Create New Product
         </button>
       </Link>
-      <div className="w-full p-4 rounded-md">
+      <div className="w-full rounded-md mb-2">
         <div className="flex flex-wrap gap-4 items-end">
           {/* Search Form */}
           <form

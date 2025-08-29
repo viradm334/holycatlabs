@@ -68,6 +68,7 @@ export default function AdminUsers() {
             <th className="border border-gray-300 p-2">Nama</th>
             <th className="border border-gray-300 p-2">Email</th>
             <th className="border border-gray-300 p-2">No.HP</th>
+            <th className="border border-gray-300 p-2">Kota</th>
             <th className="border border-gray-300 p-2">Role</th>
             <th className="border border-gray-300 p-2">Tgl Bergabung</th>
             <th className="border border-gray-300 p-2">Order</th>
@@ -81,6 +82,9 @@ export default function AdminUsers() {
               <td className="border border-gray-300 p-2">{user.email}</td>
               <td className="border border-gray-300 p-2">
                 {user.phoneNumber ? user.phoneNumber : "-"}
+              </td>
+              <td className="border border-gray-300 p-2">
+                {user.city ? user.city : "-"}
               </td>
               <td className="border border-gray-300 p-2">
                 <StatusBadge status={user.role} />

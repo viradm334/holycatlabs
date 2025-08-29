@@ -8,6 +8,7 @@ import {
   UsersIcon,
   ShoppingBagIcon,
   HomeIcon,
+  InboxArrowDownIcon
 } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -38,6 +39,15 @@ export default function Sidebar() {
           >
             <ShoppingBagIcon className="size-5" />
             Products
+          </Link>
+        </li>
+        <li className="font-medium px-3 py-2 hover:bg-gray-200">
+          <Link
+            href={"/admin/orders"}
+            className="flex items-center gap-4 mb-1.5"
+          >
+            <InboxArrowDownIcon className="size-5" />
+            Orders
           </Link>
         </li>
         <li className="font-medium px-3 py-2 hover:bg-gray-200">
