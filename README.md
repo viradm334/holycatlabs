@@ -1,6 +1,14 @@
 # Holycatlabs
 
-Platform e-commerce penjualan kebutuhan binatang peliharaan, terutama kucing yang dimulai dari obat-obatan, makanan hewan, dll. Dibuat dengan Next.js, Tailwind CSS, Prisma, dan MySQL.
+Platform e-commerce penjualan kebutuhan binatang peliharaan, terutama kucing yang dimulai dari obat-obatan, makanan hewan, dll.
+
+## Tech Stack
+
+1. Next.js 15
+2. Tailwind CSS
+3. Prisma ORM
+4. MySQL
+5. Cloudinary (Cloud Storage)
 
 ## Fitur Aplikasi
 
@@ -60,6 +68,10 @@ npx prisma migrate deploy
 ```bash
 npm run dev
 ```
+
+## Link Aplikasi
+
+https://holycatlabs.vercel.app/
 
 ## Catatan
 
