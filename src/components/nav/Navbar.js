@@ -48,13 +48,13 @@ export default function Navbar({ user }) {
               <div className="absolute right-0 mt-2 w-40 bg-white border border-gray-300 rounded shadow-lg z-50">
                 <ul className="flex flex-col text-sm text-slate-700 font-medium">
                   <Link
-                    href="/user/profile"
+                    href="/customer/profile"
                     className="px-4 py-2 hover:bg-slate-100"
                   >
                     Profile
                   </Link>
                   <Link
-                    href="/user/orders"
+                    href="/customer/orders"
                     className="px-4 py-2 hover:bg-slate-100"
                   >
                     Orders
