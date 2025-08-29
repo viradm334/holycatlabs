@@ -5,13 +5,13 @@ export async function POST(req) {
     const body = await req.json();
     const {
       userId,
+      name,
       address,
       city,
       province,
       products, // [{ productId, quantity }]
       phoneNumber,
-      email,
-      paymentMethod,
+      postal_code,
       cartId,
     } = body;
 
@@ -40,12 +40,12 @@ export async function POST(req) {
         data: {
           orderNumber,
           userId,
-          email,
+          name,
           phoneNumber,
           address,
           city,
           province,
-          paymentMethod,
+          postal_code,
           orderItems: {
             create: products.map((item) => {
               const record = productRecords.find(

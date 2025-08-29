@@ -18,11 +18,14 @@ export default function AdminLayout({ title = "Dashboard", children }) {
   return (
     <div className="flex">
       <Sidebar/>
-      <main className="w-5/6 p-10 bg-white">
-        <header className="mb-3">
-          <h1 className="text-2xl font-semibold text-gray-700">{title}</h1>
+      <main className="w-5/6 bg-gray-100 flex flex-col">
+        <header className="mb-3 w-full bg-white top-0 px-3 py-5">
+          <h1 className="text-2xl font-semibold text-gray-600">{title}</h1>
         </header>
+        <div className="p-5">
+
         {children}
+        </div>
       </main>
     </div>
   );

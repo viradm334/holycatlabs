@@ -7,7 +7,7 @@ export default function StatusBadge({ status }) {
     SENT: "bg-violet-200 text-violet-600",
     PROCESSED: "bg-blue-200 text-blue-600",
     CANCELED: "bg-red-200 text-red-600",
-    USER: "bg-green-200 text-green-600",
+    CUSTOMER: "bg-green-200 text-green-600",
     ADMIN: "bg-blue-200 text-blue-600",
   };
 
