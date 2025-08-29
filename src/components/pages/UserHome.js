@@ -8,11 +8,15 @@ import { InboxIcon } from "@heroicons/react/24/outline";
 export default function UserHome() {
   const [products, setProducts] = useState([]);
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch("/api/products")
       .then((res) => res.json())
-      .then((data) => setProducts(data.products));
+      .then((data) => {
+        setProducts(data.products);
+        setIsLoading(false);
+      });
   }, []);
 
   useEffect(() => {
@@ -20,6 +24,14 @@ export default function UserHome() {
       .then((res) => res.json())
       .then((data) => setCategories(data.categories));
   }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Image src={"/loading.svg"} alt="Loading..." width={200} height={200} />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col px-10 py-5 gap-5">
