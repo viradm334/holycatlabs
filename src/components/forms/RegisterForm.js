@@ -5,8 +5,10 @@ import Button from "../ui/Button";
 import Link from "next/link";
 import { useState } from "react";
 import PasswordInput from "../ui/PasswordInput";
+import { useRouter } from "next/navigation";
 
 export default function RegisterForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -18,8 +20,35 @@ export default function RegisterForm() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const res = await fetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application-json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await res.json();
+
+      if (res.ok) {
+        alert(data.message);
+        setFormData({
+          name: "",
+          email: "",
+          password: "",
+        });
+        router.push("/login");
+      }
+    } catch (err) {
+      alert(err);
+      console.error(err);
+    }
+  };
+
   return (
-    <form className="flex flex-col p-10 bg-white shadow-sm rounded gap-3 w-1/3">
+    <form className="flex flex-col p-10 bg-white shadow-sm rounded gap-3 w-1/3" onSubmit={handleSubmit}>
       <h4 className="text-teal-600 font-semibold text-2xl text-center">
         Register
       </h4>
@@ -28,18 +57,20 @@ export default function RegisterForm() {
         <label className="font-semibold text-teal-600 text-sm">Name</label>
         <Input
           name={"name"}
-          value={""}
+          value={formData.name}
           type={"text"}
-          placeholder={"Enter your name here..."}
+          placeholder={"Enter your name here"}
+          onChange={handleChange}
         />
       </div>
       <div className="flex flex-col gap-1">
         <label className="font-semibold text-teal-600 text-sm">Email</label>
         <Input
           name={"email"}
-          value={""}
+          value={formData.email}
           type={"text"}
-          placeholder={"Enter your email here..."}
+          placeholder={"Enter your email here"}
+          onChange={handleChange}
         />
       </div>
       <div className="flex flex-col gap-1 mb-2">
@@ -65,7 +96,7 @@ export default function RegisterForm() {
         </Link>
       </p>
 
-      <Button type={"primary"} text={"Register"} />
+      <Button variant={"primary"} text={"Register"} type="submit" />
     </form>
   );
 }

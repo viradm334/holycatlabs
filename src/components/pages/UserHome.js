@@ -2,7 +2,8 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
-import { formatCurrency } from "@/lib/utils/formatCurrency";
+import ProductCard from "../ui/ProductCard";
+import { InboxIcon } from "@heroicons/react/24/outline";
 
 export default function UserHome() {
   const [products, setProducts] = useState([]);
@@ -60,28 +61,23 @@ export default function UserHome() {
       </div>
       {/* Products */}
       <div className="flex flex-wrap gap-3">
-        {products.map((product, index) => (
-          <div
-          key={index}
-          className="w-[200px] h-[200px] rounded-md shadow-sm flex flex-col overflow-hidden bg-white"
-        >
-          {/* Image Section */}
-          <div className="relative w-full h-2/3">
-            <Image
-              src={product.imageUrl}
-              alt="product-image"
-              fill
-              className="object-cover"
+        {products.length > 0 ? (
+          products.map((product, index) => (
+            <ProductCard
+              key={index}
+              name={product.name}
+              price={product.price}
+              image={product.imageUrl}
+              slug={product.slug}
+              stock={product.stock}
             />
+          ))
+        ) : (
+          <div className="flex flex-col text-gray-400 w-full justify-center items-center">
+            <InboxIcon className="size-20 mb-5" />
+            <h4 className="font-light">Produk tidak ditemukan</h4>
           </div>
-        
-          {/* Info Section */}
-          <div className="h-1/3 p-3 flex flex-col justify-center gap-1">
-            <h4 className="text-gray-800 text-sm">{product.name}</h4>
-            <p className="text-teal-600 text-sm font-semibold">{formatCurrency(product.price)}</p>
-          </div>
-        </div>
-        ))}
+        )}
       </div>
     </div>
   );

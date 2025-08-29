@@ -15,7 +15,6 @@ export async function GET(req, {params}){
                         name: true,
                         slug: true,
                         price: true,
-                        color: true,
                         imageUrl: true
                     }
                 }

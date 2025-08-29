@@ -21,7 +21,7 @@ export async function POST(req) {
     });
 
     return Response.json({
-      message: "Successfully created new accoun!",
+      message: "Successfully created new account!",
       success: true,
       user,
     });
