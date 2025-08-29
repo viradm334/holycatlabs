@@ -69,7 +69,6 @@ export default function AdminProducts() {
 
   const handleReset = () => {
     router.push(pathname);
-    setStatus("");
     setInputName("");
     setCategory("");
   };
@@ -131,12 +130,7 @@ export default function AdminProducts() {
 
           {/* Clear Button */}
           <div className="flex flex-col justify-end">
-            <button
-              onClick={handleReset}
-              className="bg-amber-500 hover:bg-amber-600 text-white transition rounded px-4 py-2"
-            >
-              Clear Search
-            </button>
+            <Button variant={'secondary'} text={'Clear Search'} onClick={handleReset}/>
           </div>
 
           {/* Category Select */}

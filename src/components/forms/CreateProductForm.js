@@ -160,6 +160,8 @@ export default function CreateProductForm() {
               public_id: results.info.public_id,
             });
           }}
+          
+          options={{ clientAllowedFormats: ['jpg', 'jpeg', 'png', 'webp'], maxFileSize: 5242880 }}
         >
           {({ open }) => {
             return (

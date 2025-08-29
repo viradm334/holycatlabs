@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Holycatlabs
 
-## Getting Started
+Platform e-commerce penjualan kebutuhan binatang peliharaan, terutama kucing yang dimulai dari obat-obatan, makanan hewan, dll. Dibuat dengan Next.js, Tailwind CSS, Prisma, dan MySQL.
 
-First, run the development server:
+## Fitur Aplikasi
 
+### Autentikasi
+1. Login
+2. Register
+
+### Admin
+1. Dashboard
+2. View all users
+3. View all orders
+4. View order details
+5. Create, Edit, and Delete Product
+
+### Customer
+1. View Profile
+2. Update profile
+3. View all products
+4. View product details
+5. Add items to cart
+6. Update cart item quantity
+7. Checkout order
+8. Filter products by category
+9. View orders
+
+## Cara Clone Project
+
+1. **Clone Repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/viradm334/holycatlabs.git
+cd havenwear
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Install Packages**
+```bash
+npm install
+```
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+3. **Buat file .env dengan menyalin env.example**
+```bash
+cp .env.example .env
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. **Isi environment variable dengan kredensial sesuai dengan milik Anda**
+Note: aplikasi ini menggunakan Cloud Storage Cloudinary, jadi sebelum mulai menggunakan aplikasi pastikan anda sudah memiliki API Key dan Secret dari Cloudinary.
 
-## Learn More
+5. **Generate Prisma Client**
+```bash
+npx prisma generate
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. **Migrasi database**
+```bash
+npx prisma migrate deploy
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. **Jalankan Aplikasi**
+```bash
+npm run dev
+```
