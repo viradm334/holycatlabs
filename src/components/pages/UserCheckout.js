@@ -6,6 +6,8 @@ import { formatCurrency } from "@/lib/utils/formatCurrency";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import BackButton from "../ui/BackButton";
+import Input from "../ui/Input";
+import Button from "../ui/Button";
 
 export default function UserCheckout({ user }) {
   const router = useRouter();
@@ -18,7 +20,7 @@ export default function UserCheckout({ user }) {
     city: "",
     province: "",
     phoneNumber: "",
-    postal_code: ""
+    postal_code: "",
   });
 
   useEffect(() => {
@@ -43,7 +45,6 @@ export default function UserCheckout({ user }) {
           setFormData({
             name: item.user.name,
             address: item.user.address,
-            email: item.user.email,
             phoneNumber: item.user.phoneNumber,
             city: item.user.city,
             province: item.user.province,
@@ -74,7 +75,7 @@ export default function UserCheckout({ user }) {
       if (res.ok) {
         alert(data.message);
         router.push("/customer/orders");
-      } 
+      }
     } catch (err) {
       alert(err.message);
       console.error(err.message);
@@ -93,95 +94,82 @@ export default function UserCheckout({ user }) {
     <>
       <div className="main flex flex-col gap-3">
         <h1 className="text-xl text-teal-600 font-semibold px-5">Checkout</h1>
-        <BackButton destination={'/cart'}/>
+        <BackButton destination={"/cart"} />
         <div className="flex p-5 w-full gap-4">
           <form
-            className="flex flex-col outline-1 outline-gray-300 p-5 w-1/2 rounded shadow-md"
+            className="flex flex-col p-5 w-1/2 shadow-md"
             onSubmit={handleSubmit}
           >
-            <h1 className="font-bold mb-3 text-center">Biodata Pelanggan</h1>
-            <label className="text-sm text-emerald-700 font-bold mb-1.5">
+            <h1 className="font-bold mb-3 px-3 text-gray-800 text-md text-center">
+              Data Penerima
+            </h1>
+            <label className="text-sm text-teal-700 font-bold mb-1.5">
               Name
             </label>
-            <input
-              type="text"
-              name="name"
-              className="outline-1 outline-gray-400 rounded-sm mb-3 p-1.5 placeholder:text-sm placeholder:text-normal focus:outline-emerald-600"
+            <Input
+              type={"text"}
+              name={"name"}
               placeholder="Enter your name here"
               value={formData?.name || ""}
               onChange={handleChange}
-              required
             />
-            <label className="text-sm text-emerald-700 font-bold mb-1.5">
+
+            <label className="text-sm text-teal-700 font-bold mb-1.5">
               Phone Number
             </label>
-            <input
-              type="text"
-              name="phoneNumber"
-              className="outline-1 outline-gray-400 rounded-sm mb-3 p-1.5 placeholder:text-sm placeholder:text-normal focus:outline-emerald-600"
-              placeholder="Enter your name here"
+            <Input
+              type={"text"}
+              name={"phoneNumber"}
+              placeholder="Enter your phone number here"
               value={formData?.phoneNumber || ""}
               onChange={handleChange}
-              required
             />
-            <label className="text-sm text-emerald-700 font-bold mb-1.5">
+
+            <label className="text-sm text-teal-700 font-bold mb-1.5">
               Address
             </label>
-            <input
-              type="text"
-              name="address"
-              className="outline-1 outline-gray-400 rounded-sm mb-3 p-1.5 placeholder:text-sm placeholder:text-normal focus:outline-emerald-600"
+            <Input
+              type={"text"}
+              name={"address"}
               placeholder="Enter your address here"
               value={formData?.address || ""}
               onChange={handleChange}
-              required
             />
-            <label className="text-sm text-emerald-700 font-bold mb-1.5">
+            <label className="text-sm text-teal-700 font-bold mb-1.5">
               City
             </label>
-            <input
-              type="text"
-              name="city"
-              className="outline-1 outline-gray-400 rounded-sm mb-3 p-1.5 placeholder:text-sm placeholder:text-normal focus:outline-emerald-600"
+            <Input
+              type={"text"}
+              name={"city"}
               placeholder="Enter your city here"
               value={formData?.city || ""}
               onChange={handleChange}
-              required
             />
-            <label className="text-sm text-emerald-700 font-bold mb-1.5">
+            <label className="text-sm text-teal-700 font-bold mb-1.5">
               Province
             </label>
-            <input
-              type="text"
-              name="province"
-              className="outline-1 outline-gray-400 rounded-sm mb-3 p-1.5 placeholder:text-sm placeholder:text-normal focus:outline-emerald-600"
+            <Input
+              type={"text"}
+              name={"province"}
               placeholder="Enter your province here"
               value={formData?.province || ""}
               onChange={handleChange}
-              required
-            />
-            <label className="text-sm text-emerald-700 font-bold mb-1.5">
-              Postal Code
-            </label>
-            <input
-              type="text"
-              name="postal_code"
-              className="outline-1 outline-gray-400 rounded-sm mb-3 p-1.5 placeholder:text-sm placeholder:text-normal focus:outline-emerald-600"
-              placeholder="Enter your postal code here"
-              value={formData?.postal_code || ""}
-              onChange={handleChange}
-              required
             />
 
-            <button
-              type="submit"
-              className="text-white text-center bg-emerald-600 rounded hover:bg-emerald-700 transition w-full px-3 py-2 mt-4 cursor-pointer"
-            >
-              Buat Pesanan
-            </button>
+            <label className="text-sm text-teal-700 font-bold mb-1.5">
+              Postal Code
+            </label>
+            <Input
+              type={"text"}
+              name={"postal_code"}
+              value={formData?.postal_code || ""}
+              placeholder={"Enter your postal code here"}
+              onChange={handleChange}
+            />
+            <Button variant={"primary"} type="submit" text={"Buat Pesanan"} />
           </form>
-          <div className="flex flex-col w-1/2 p-3 gap-3">
-            <h1 className="font-bold mb-3 px-3 text-black text-md text-center">
+          <div className="flex flex-col w-1/2 p-3 gap-3 h-[300px] overflow-y-auto">
+            <h1 className="font-bold mb-3 px-3 text-gray-800 text-md text-center">
               Barang yang Dipesan
             </h1>
             {cartItems.map((item) => (
@@ -193,8 +181,7 @@ export default function UserCheckout({ user }) {
                 <Link href={`/${item.product.slug}`}>
                   <div className="relative w-[200px] h-[150px]">
                     <Image
-                      src={
-                        item.product.imageUrl}
+                      src={item.product.imageUrl}
                       fill
                       alt="item-image"
                       className="object-cover"
@@ -212,25 +199,21 @@ export default function UserCheckout({ user }) {
                     Jumlah: {item.quantity}
                   </h5>
                   <h5 className="text-gray-800 font-medium">
-                    Harga satuan:{" "}
-                    {formatCurrency(item.product.price)}
+                    Harga satuan: {formatCurrency(item.product.price)}
                   </h5>
                   <h5 className="text-gray-800 font-semibold">
-                    Subtotal:{" "}
-                    {formatCurrency(
-                      item.product.price * item.quantity
-                    )}
+                    Subtotal:
+                    {formatCurrency(item.product.price * item.quantity)}
                   </h5>
                 </div>
               </div>
             ))}
             <div className="flex justify-end">
-              <h1 className="font-bold text-md text-emerald-700">
+              <h1 className="font-bold text-md text-teal-700">
                 Total:
                 {formatCurrency(
                   cartItems.reduce(
-                    (acc, item) =>
-                      acc + item.quantity * item.product.price,
+                    (acc, item) => acc + item.quantity * item.product.price,
                     0
                   )
                 )}

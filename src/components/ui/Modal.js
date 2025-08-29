@@ -12,7 +12,7 @@ export default function Modal({ title = "", children, isOpen, onClose }) {
           >
             <XMarkIcon className="size-6"/>
           </button>
-          {title && <h2 className="text-lg font-semibold mb-4">{title}</h2>}
+          {title && <h2 className="text-lg font-semibold mb-4 text-center">{title}</h2>}
           <div>{children}</div>
         </div>
       </div>

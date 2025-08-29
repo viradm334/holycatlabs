@@ -30,7 +30,7 @@ export default function Pagination({ page, lastPage }) {
           key={p}
           onClick={() => goToPage(p)}
           className={`px-3 py-1 rounded ${
-            p == page ? "bg-emerald-500 text-white" : "bg-gray-100"
+            p == page ? "bg-teal-500 text-white" : "bg-gray-100"
           } cursor-pointer`}
         >
           {p}

@@ -5,7 +5,7 @@ import Link from "next/link";
 
 export default function BackButton({ destination }) {
   return (
-    <div className="px-5 w-full">
+    <div className="px-5 w-full mt-3">
       <Link
         href={destination}
         className="flex items-center gap-2 text-gray-700"

@@ -1,10 +1,13 @@
 import CustomerLayout from "@/components/layouts/CustomerLayout";
 import UserHome from "@/components/pages/UserHome";
+import { Suspense } from "react";
 
 export default function Home() {
   return (
-    <CustomerLayout>
-      <UserHome/>
-    </CustomerLayout>
+    <Suspense>
+      <CustomerLayout>
+        <UserHome />
+      </CustomerLayout>
+    </Suspense>
   );
 }
