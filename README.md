@@ -39,7 +39,7 @@ Platform e-commerce penjualan kebutuhan binatang peliharaan, terutama kucing yan
 1. **Clone Repository**
 ```bash
 git clone https://github.com/viradm334/holycatlabs.git
-cd havenwear
+cd holycatlabs
 ```
 
 2. **Install Packages**
