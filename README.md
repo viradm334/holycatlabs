@@ -45,7 +45,6 @@ cp .env.example .env
 ```
 
 4. **Isi environment variable dengan kredensial sesuai dengan milik Anda**
-Note: aplikasi ini menggunakan Cloud Storage Cloudinary, jadi sebelum mulai menggunakan aplikasi pastikan anda sudah memiliki API Key dan Secret dari Cloudinary.
 
 5. **Generate Prisma Client**
 ```bash
@@ -61,3 +60,7 @@ npx prisma migrate deploy
 ```bash
 npm run dev
 ```
+
+## Catatan
+
+Aplikasi ini menggunakan Cloud Storage Cloudinary, jadi sebelum mulai menggunakan aplikasi pastikan anda sudah memiliki API Key dan Secret dari Cloudinary dan disimpan pada .env milik anda.
