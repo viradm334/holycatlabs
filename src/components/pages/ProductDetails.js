@@ -143,10 +143,17 @@ export default function ProductDetails({ user }) {
               <Button variant={'primary'} onClick={insertCartItem} text={'Tambahkan ke keranjang'}/>
             </div>
 
+            {/* Category */}
+
+            <div>
+              <h2 className="font-bold text-md mb-1">Kategori</h2>
+              <p className="text-gray-700 text-sm">{product?.category.name}</p>
+            </div>
+
             {/* Description */}
             <div>
-              <h2 className="font-bold text-lg mb-1">Deskripsi</h2>
-              <p className="text-gray-700">{product?.description}</p>
+              <h2 className="font-bold text-md mb-1">Deskripsi</h2>
+              <p className="text-gray-700 text-sm">{product?.description}</p>
             </div>
           </div>
         </div>

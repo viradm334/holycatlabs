@@ -21,7 +21,7 @@ Platform e-commerce penjualan kebutuhan binatang peliharaan, terutama kucing yan
 2. View all users
 3. View all orders
 4. View order details
-5. Create, Edit, and Delete Product
+5. Create, Read, Edit, and Delete Product
 
 ### Customer
 1. View Profile
