@@ -14,12 +14,21 @@ import {
 
 export default function OrderDetails({ orderNumber }) {
   const [order, setOrder] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     fetch(`/api/orders/${orderNumber}`)
       .then((res) => res.json())
-      .then((data) => setOrder(data.orderWithTotal));
+      .then((data) => {setOrder(data.orderWithTotal); setIsLoading(false);});
   }, []);
+
+    if (isLoading) {
+      return (
+        <div className="flex justify-center items-center h-screen">
+          <Image src={"/loading.svg"} alt="Loading..." width={200} height={200} />
+        </div>
+      );
+    }
 
   return (
     <div className="flex flex-col w-full h-[300px] overflow-y-auto text-sm text-gray-600 font-light gap-3 bg-gray-100">

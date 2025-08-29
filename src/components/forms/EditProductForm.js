@@ -14,6 +14,7 @@ export default function EditProductForm() {
   const router = useRouter();
   const params = useParams();
   const { slug } = params;
+  const [isLoading, setIsLoading] = useState(true);
   const [categories, setCategories] = useState([]);
   const [formData, setFormData] = useState({
     name: "",
@@ -49,6 +50,7 @@ export default function EditProductForm() {
           secure_url: data.product.imageUrl,
           public_id: data.product.public_id,
         });
+        setIsLoading(false);
       });
   }, []);
 
@@ -108,6 +110,14 @@ export default function EditProductForm() {
       alert(err.message);
     }
   };
+
+  if (isLoading) {
+    return (
+      <div className="flex justify-center items-center h-screen">
+        <Image src={"/loading.svg"} alt="Loading..." width={200} height={200} />
+      </div>
+    );
+  }
 
   return (
     <div className="flex flex-col gap-3">

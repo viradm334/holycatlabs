@@ -12,6 +12,7 @@ import Input from "../ui/Input";
 export default function CreateProductForm() {
   const router = useRouter();
   const [categories, setCategories] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [formData, setFormData] = useState({
     name: "",
     categoryId: "",
@@ -26,7 +27,7 @@ export default function CreateProductForm() {
   useEffect(() => {
     fetch("/api/categories")
       .then((res) => res.json())
-      .then((data) => setCategories(data.categories));
+      .then((data) => {setCategories(data.categories); setIsLoading(false)});
   }, []);
 
   const handleInputChange = (e) => {
@@ -85,6 +86,14 @@ export default function CreateProductForm() {
       alert(err.message);
     }
   };
+
+    if (isLoading) {
+      return (
+        <div className="flex justify-center items-center h-screen">
+          <Image src={"/loading.svg"} alt="Loading..." width={200} height={200} />
+        </div>
+      );
+    }
 
   return (
     <div className="flex flex-col gap-3">

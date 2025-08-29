@@ -175,7 +175,7 @@ export default function AdminProducts() {
                     src={product.imageUrl}
                     fill
                     alt="item-image"
-                    className="rounded-md object-cover"
+                    className="rounded-md object-contain"
                   />
                 </div>
               </td>
