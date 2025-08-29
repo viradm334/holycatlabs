@@ -26,10 +26,12 @@ export default function Navbar({ user }) {
   return (
     <div className="shadow-md sticky top-0 px-5 py-2 flex justify-between bg-white z-10">
       {/* Logo */}
+      <Link href={'/'}>
       <div className="flex gap-2 items-center">
         <Image src={"/logo.jpg"} height={40} width={40} alt="logo" />
         <span className="text-xl text-teal-600 font-semibold">Holycatlabs</span>
       </div>
+      </Link>
       {/* Items */}
       <ul className="flex gap-3 items-center font-semibold text-teal-600">
         {user ? (

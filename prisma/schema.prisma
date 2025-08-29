@@ -45,6 +45,7 @@ model Product {
   slug String @unique
   description String? @db.LongText
   imageUrl String
+  public_id String?
   category Category @relation(fields: [categoryId], references: [id])
   categoryId String
   price Float @default(0)

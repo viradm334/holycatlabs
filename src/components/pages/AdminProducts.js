@@ -87,7 +87,6 @@ export default function AdminProducts() {
       if (res.ok) {
         const data = await res.json();
         setProducts((prev) => prev.filter((item) => item.id !== id));
-        console.log(data.message);
       }
     } catch (err) {
       console.error(err.message);
@@ -104,7 +103,7 @@ export default function AdminProducts() {
 
   return (
     <div className="flex flex-col gap-3">
-      <Link href={"/admin/product/create"}>
+      <Link href={"/admin/products/create"}>
         <button className="outline-none rounded px-3 py-2 transition bg-emerald-600 text-white cursor-pointer hover:bg-emerald-700">
           + Create New Product
         </button>
@@ -197,7 +196,7 @@ export default function AdminProducts() {
               <td className="border border-gray-300 p-2">
                 <div className="flex gap-2 justify-center">
                   <Link
-                    href={`/admin/product/edit/${product.slug}`}
+                    href={`/admin/products/edit/${product.slug}`}
                     className="outline-none bg-blue-500 hover:bg-blue-600 text-white px-3 py-2 rounded-md"
                   >
                     Edit

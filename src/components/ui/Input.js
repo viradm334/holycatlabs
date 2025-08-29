@@ -8,7 +8,7 @@ export default function Input({ name, onChange, value, placeholder, type }) {
       onChange={onChange}
       value={value}
       placeholder={placeholder}
-      type={type}
+      type={type} required
     />
   );
 }
